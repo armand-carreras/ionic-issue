@@ -8,7 +8,7 @@ import { Gesture, GestureController, GestureDetail } from '@ionic/angular';
 })
 export class GestureRoutingPage implements OnInit {
 
-  @ViewChild('slider') private slider: any;
+  @ViewChild('slider') private slider: ElementRef;
 
   public details = '';
 
@@ -16,7 +16,7 @@ export class GestureRoutingPage implements OnInit {
 
   ngOnInit() {
     const gesture: Gesture = this.gestureCtrl.create({
-      el: this.slider,
+      el: this.slider.nativeElement,
       gestureName: 'slide-gesture',
       threshold: 20,
       onMove: detail => { this.onMove(detail); },
